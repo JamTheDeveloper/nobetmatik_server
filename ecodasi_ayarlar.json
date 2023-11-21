@@ -1,0 +1,30 @@
+{
+    "edirne": {
+        "adres":"https://www.edirneeo.org.tr/nobetci-eczaneler",
+        "tarih1": "DD.MM.YYYY",
+        "ilce": "",
+        "kaydet": "Ara",
+        "element_tag": "div", 
+        "element_class": "nine columns top-1",
+        "saat":"21:29"
+    },
+    "izmir": {
+        "adres":"https://www.izmireczaciodasi.org.tr/nobetci-eczaneler",
+        "tarih1": "YYYY-MM-DD",
+        "ilce": "",
+        "gnr": "Kayıt Ara",
+        "element_tag": "div", 
+        "element_class": "col col_10_of_12",
+        "saat":"14:26"
+    },
+    "denizli": {
+        "adres":"https://denizlieczaciodasi.org.tr/nobetci-eczaneler",
+        "tarih1": "YYYY-MM-DD",
+        "tarih2": "YYYY-MM-DD",
+        "ilce": "2085",
+        "gnr": "NÖBET ARA",
+        "element_tag": "div", 
+        "element_class": "col-md-10",
+        "saat":""
+    }
+}
