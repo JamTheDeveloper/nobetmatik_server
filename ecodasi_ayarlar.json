@@ -6,7 +6,7 @@
         "kaydet": "Ara",
         "element_tag": "div", 
         "element_class": "nine columns top-1",
-        "saat":"21:29"
+        "saat":"08:29"
     },
     "izmir": {
         "adres":"https://www.izmireczaciodasi.org.tr/nobetci-eczaneler",
@@ -15,7 +15,7 @@
         "gnr": "Kayıt Ara",
         "element_tag": "div", 
         "element_class": "col col_10_of_12",
-        "saat":"14:26"
+        "saat":"08:28"
     },
     "denizli": {
         "adres":"https://denizlieczaciodasi.org.tr/nobetci-eczaneler",
