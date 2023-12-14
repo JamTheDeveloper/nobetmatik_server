@@ -33,7 +33,6 @@ async def scheduled_scraping(il_adi):
         saat = now.strftime("%H:%M")
         if saat == veriler[il_adi].get("saat"):
             scraped_data = await scraper.scrape_il(il_adi)
-            print("Alınan veriler", scraped_data)
             if scraped_data:
                 db.clear_and_insert_data(il_adi, scraped_data)
 

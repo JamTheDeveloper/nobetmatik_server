@@ -15,7 +15,7 @@ class Database:
     def create_table(self, il_adi):
         cursor = self.connection.cursor()
         try:
-            cursor.execute(f"CREATE TABLE IF NOT EXISTS {il_adi} (eczane_adi VARCHAR(255), telefon VARCHAR(20), adres VARCHAR(255), ilce VARCHAR(50), konum VARCHAR(255))")
+            cursor.execute(f"CREATE TABLE IF NOT EXISTS {il_adi} (eczane_adi VARCHAR(255), telefon VARCHAR(20), adres VARCHAR(255), ilce VARCHAR(50), konum VARCHAR(255), nobbastarih VARCHAR(255))")
             self.connection.commit()
         finally:
             cursor.close()
@@ -27,17 +27,18 @@ class Database:
         try:
             print(il_adi,"tablosuna işlem başlıyor")
             cursor.execute(f"DELETE FROM nobet_{il_adi}")  # Tablodaki eski verileri sil
-            for eczane in data:
-                print(eczane['eczane_adi'],"KAYIT EDILIYOR")
-                cursor.execute(f"INSERT INTO nobet_{il_adi} (eczaneadi, telefonno, adres, ilce, konum) VALUES (%s, %s, %s, %s, %s)", (
-                    eczane['eczane_adi'], eczane['telefon'], eczane['adres'], eczane['ilce'], eczane['konum']))
+            for uc_gunluk_eczane in data:
+                for eczane in uc_gunluk_eczane:
+                    print(eczane['eczane_adi'],"KAYIT EDILIYOR",eczane['tarih'])
+                    cursor.execute(f"INSERT INTO nobet_{il_adi} (eczaneadi, telefonno, adres, ilce, konum, nobbastarih) VALUES (%s, %s, %s, %s, %s,%s)", (
+                        eczane['eczane_adi'], eczane['telefon'], eczane['adres'], eczane['ilce'], eczane['konum'],eczane['tarih']))
             self.connection.commit()
         finally:
             cursor.close()
     def get_eczaneler_for_il(self, il_adi):
         cursor = self.connection.cursor(dictionary=True)
         try:
-            cursor.execute(f"SELECT eczaneadi, telefonno, adres, ilce, konum FROM nobet_{il_adi}")
+            cursor.execute(f"SELECT eczaneadi, telefonno, adres, ilce, konum, nobbastarih FROM nobet_{il_adi}")
             eczaneler = cursor.fetchall()
             return eczaneler
         finally:
